@@ -7,6 +7,7 @@ import SoundOn from "../assets/sound-on.png";
 import SoundOff from "../assets/sound-off.png";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import "../styles/opening.scss";
 
@@ -30,9 +31,15 @@ const OpeningWindow = () => {
 			</div>
 
 			<div className="btns">
-				<img src={WebBtn} alt="website" />
-				<img className="start" src={StartBtn} alt="start" />
-				<img src={GuideBtn} alt="guide" />
+				<Link to="/">
+					<img src={WebBtn} alt="website" />
+				</Link>
+				<Link to="/game">
+					<img className="start" src={StartBtn} alt="start" />
+				</Link>
+				<Link to="/">
+					<img src={GuideBtn} alt="guide" />
+				</Link>
 			</div>
 		</main>
 	);

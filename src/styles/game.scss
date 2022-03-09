@@ -1,0 +1,54 @@
+@import "var";
+
+.bg {
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../assets/temp.jpg");
+	background-size: cover;
+	background-position: center;
+	.modal-bg {
+		background-color: rgba($color: #000000, $alpha: 0.3);
+		width: 100%;
+		height: 100%;
+		@include center;
+		.modal {
+			padding: 2rem;
+			background-image: url("../assets/TextBox.png");
+			background-size: cover;
+			width: 50ch;
+			height: 35ch;
+			.wallet {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				.title {
+					font-size: 4rem;
+				}
+				.body {
+					margin-top: -2rem;
+					font-family: $ff-alt;
+					font-size: 2rem;
+					width: 80%;
+				}
+				.btn {
+					cursor: pointer;
+					img {
+						width: 20rem;
+					}
+				}
+			}
+		}
+	}
+	.user {
+		margin: 1rem;
+		padding: 1rem;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 5ch;
+		background: black;
+		text-overflow: ellipsis;
+	}
+}

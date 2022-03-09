@@ -1,8 +1,15 @@
-import OpeningWindow from "./components/OpeningWindow";
 import { Routes, Route } from "react-router-dom";
 
+import OpeningWindow from "./components/OpeningWindow";
+import Game from "./components/Game";
+
 function App() {
-	return <OpeningWindow />;
+	return (
+		<Routes>
+			<Route path="/" element={<OpeningWindow />} exact />
+			<Route path="/game" element={<Game />} />
+		</Routes>
+	);
 }
 
 export default App;
