@@ -1,0 +1,44 @@
+@import "var";
+
+.view {
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../assets/sky.png");
+	background-size: cover;
+	position: relative;
+	.options {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 1rem;
+		top: 0;
+		right: 0;
+		img {
+			width: 6rem;
+			margin-bottom: 1rem;
+			cursor: pointer;
+		}
+	}
+	.banner {
+		@include center;
+		width: 100%;
+		height: 70%;
+		img {
+			width: 50%;
+		}
+	}
+	.btns {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			height: 6rem;
+			cursor: pointer;
+		}
+		.start {
+			height: 7.5rem;
+			margin: 0 2rem;
+		}
+	}
+}
