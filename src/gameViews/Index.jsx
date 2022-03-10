@@ -1,4 +1,4 @@
-import IntroModal from "./IntroModal";
+import IntroModal from "../components/IntroModal";
 
 import { useMoralis } from "react-moralis";
 import { useState } from "react";

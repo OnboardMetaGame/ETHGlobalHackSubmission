@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import OpeningWindow from "./components/OpeningWindow";
-import Game from "./components/Game";
+import Game from "./gameViews/Index";
 
 function App() {
 	return (
