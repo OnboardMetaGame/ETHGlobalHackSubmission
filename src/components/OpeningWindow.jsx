@@ -3,23 +3,12 @@ import StartBtn from "../assets/start-btn.png";
 import WebBtn from "../assets/website-btn.png";
 import GuideBtn from "../assets/guide-btn.png";
 import Settings from "../assets/setting.png";
-import SoundOn from "../assets/sound-on.png";
-import SoundOff from "../assets/sound-off.png";
 
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "../styles/opening.scss";
 
-const OpeningWindow = () => {
-	const [sound, setSound] = useState(true);
-	const [soundIcon, setSoundIcon] = useState(SoundOn);
-
-	const handleSoundChange = () => {
-		sound ? setSoundIcon(SoundOff) : setSoundIcon(SoundOn);
-		setSound(!sound);
-	};
-
+const OpeningWindow = ({ soundIcon, handleSoundChange }) => {
 	return (
 		<main className="view">
 			<div className="options">

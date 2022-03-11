@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import { useMoralis } from "react-moralis";
 
-import ConnectBtn from "../assets/connect-btn.png";
+import WalletIntro from "../modals/WalletIntro";
+import NoWalletIntro from "../modals/NoWalletIntro";
 
 const IntroModal = ({ setIsModalOpen }) => {
+	const [isBrowserWallet, setIsBrowserWallet] = useState(
+		typeof window?.ethereum !== "undefined",
+	);
+
 	const {
 		authenticate,
 		isAuthenticated,
@@ -17,35 +22,13 @@ const IntroModal = ({ setIsModalOpen }) => {
 		if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading) enableWeb3();
 	}, [isAuthenticated, isWeb3Enabled]);
 
-	const login = async () => {
-		// if (!isAuthenticated) {
-		await authenticate({ signingMessage: "Log into Onboard" })
-			.then(function (user) {
-				console.log("logged in user:", user);
-				console.log(user?.get("ethAddress"));
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
-		// }
-		setIsModalOpen(false);
-	};
-
 	return (
 		<div className="modal-bg">
-			<div className="modal">
-				<div className="wallet">
-					<div className="title">{"Welcome Onboard :) !!"}</div>
-					<div className="body">
-						<p>
-							We are very excited to get you into the revolution that is Web3.0
-						</p>
-					</div>
-					<div className="btn">
-						<img onClick={login} src={ConnectBtn} alt="connect" />
-					</div>
-				</div>
-			</div>
+			{isBrowserWallet ? (
+				<WalletIntro setIsModalOpen={setIsModalOpen} />
+			) : (
+				<NoWalletIntro setIsModalOpen={setIsModalOpen} />
+			)}
 		</div>
 	);
 };

@@ -42,15 +42,60 @@
 				}
 			}
 		}
+		.no-wallet-modal {
+			padding: 2rem;
+			background-image: url("../assets/TextBox.png");
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			text-align: center;
+			width: 63.5ch;
+			height: 45ch;
+			.title {
+				margin-top: 2rem;
+				font-size: 5rem;
+				line-height: 4rem;
+				margin: 1rem 0;
+			}
+			.body {
+				margin-top: -2rem;
+				font-family: $ff-alt;
+				font-size: 2rem;
+				width: 80%;
+			}
+			.btn {
+				margin-bottom: 2rem;
+				width: 90%;
+				cursor: pointer;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				.nav-btn {
+					height: 5rem;
+				}
+				.action-btn {
+					width: 24rem;
+				}
+			}
+		}
 	}
 	.user {
 		margin: 1rem;
-		padding: 1rem;
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: 5ch;
-		background: black;
-		text-overflow: ellipsis;
+		height: 8ch;
+		width: 22ch;
+		background: url("../assets/blank-btn.png");
+		background-size: cover;
+		@include center;
+		span {
+			margin-bottom: 0.75rem;
+			font-size: 1.8rem;
+			-webkit-text-stroke-width: 2px;
+			-webkit-text-stroke-color: black;
+		}
 	}
 }
