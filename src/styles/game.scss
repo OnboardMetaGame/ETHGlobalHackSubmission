@@ -109,6 +109,15 @@
 		margin: 1rem;
 		position: absolute;
 		top: 0;
+		right: calc(29.5ch + 2rem);
+		width: 7.5ch;
+	}
+	.book {
+		cursor: pointer;
+		z-index: 4;
+		margin: 1rem;
+		position: absolute;
+		top: 0;
 		right: calc(22ch + 1rem);
 		width: 7.5ch;
 	}

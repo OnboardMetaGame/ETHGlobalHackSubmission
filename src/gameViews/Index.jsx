@@ -8,15 +8,21 @@ import "../styles/game.scss";
 
 import { SoundContext } from "../context/SoundContext";
 import { ViewContext } from "../context/ViewContext";
+import { ModalContext } from "../context/ModalContext";
 
 import Home from "./Home";
 import Academy from "./Academy";
 import Pool from "./Pool";
 import Bank from "./Bank";
 import Farm from "./Farm";
+import Questbook from "../modals/Questbook";
+import Book from "../assets/questbook.png";
+import NewBadge from "../modals/NewBadge";
 
 const Game = () => {
 	const { view, setView } = useContext(ViewContext);
+	const { isQuestBook, setIsQuestBook, setIsNewBadge, isNewBadge } =
+		useContext(ModalContext);
 	const { soundIcon, handleSoundChange } = useContext(SoundContext);
 	const navigate = useNavigate();
 	const { user, logout } = useMoralis();
@@ -42,13 +48,23 @@ const Game = () => {
 				className="sound"
 				src={soundIcon}
 				onClick={handleSoundChange}
-				alt=""
+				alt="sound"
+			/>
+			<img
+				className="book"
+				src={Book}
+				onClick={() => setIsQuestBook(!isQuestBook)}
+				alt="book"
 			/>
 			<div className="user">
 				<span>{user ? addressHandler(user.get("ethAddress")) : "0x00"}</span>
 			</div>
 			<button onClick={handleLogout}>Logout</button>
+			<button onClick={() => setIsNewBadge(true)}>NewBadge</button>
 			<button onClick={() => setView("home")}>Home</button>
+
+			{isQuestBook && <Questbook />}
+			{isNewBadge && <NewBadge />}
 
 			{view === "home" && <Home />}
 			{view === "farm" && <Farm />}

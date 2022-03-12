@@ -3,10 +3,6 @@ import { useState } from "react";
 
 import OpeningWindow from "./components/OpeningWindow";
 import Game from "./gameViews/Index";
-import Academy from "./gameViews/Academy";
-import Bank from "./gameViews/Bank";
-import Pool from "./gameViews/Pool";
-import Farm from "./gameViews/Farm";
 
 import { ModalContext } from "./context/ModalContext";
 import { SoundContext } from "./context/SoundContext";
@@ -19,6 +15,7 @@ function App() {
 	const [sound, setSound] = useState(true);
 	const [soundIcon, setSoundIcon] = useState(SoundOn);
 	const [isQuestBook, setIsQuestBook] = useState(false);
+	const [isNewBadge, setIsNewBadge] = useState(false);
 	const [view, setView] = useState("home");
 
 	const handleSoundChange = () => {
@@ -30,7 +27,8 @@ function App() {
 		<ViewContext.Provider value={{ view, setView }}>
 			<SoundContext.Provider
 				value={{ sound, setSound, soundIcon, setSoundIcon, handleSoundChange }}>
-				<ModalContext.Provider value={{ isQuestBook, setIsQuestBook }}>
+				<ModalContext.Provider
+					value={{ isQuestBook, setIsQuestBook, isNewBadge, setIsNewBadge }}>
 					<Routes>
 						<Route index element={<OpeningWindow />} exact />
 						<Route path="/" element={<OpeningWindow />} />

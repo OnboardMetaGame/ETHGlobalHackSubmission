@@ -1,0 +1,53 @@
+@import "var";
+
+.new-badge-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	background-color: rgba($color: #000000, $alpha: 0.5);
+	width: 100%;
+	height: 100%;
+	@include center;
+	.new-badge {
+		position: relative;
+		z-index: 15;
+		padding: 2rem;
+		background-image: url("../assets/TextBox.png");
+		background-size: cover;
+		width: 70ch;
+		height: 50ch;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		.exit {
+			position: absolute;
+			top: 3rem;
+			right: 3rem;
+			width: 3rem;
+		}
+		.badge {
+			margin-top: -1.5rem;
+			@include center;
+			flex-direction: column;
+			img {
+				width: 20ch;
+			}
+			.name {
+				font-size: 2rem;
+			}
+			.discription {
+				font-family: $ff-alt;
+				font-size: 1.5rem;
+			}
+		}
+		.message {
+			font-size: 3rem;
+		}
+
+		.add-to-book {
+			height: 6rem;
+		}
+	}
+}
