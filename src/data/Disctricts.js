@@ -11,7 +11,7 @@ export const discricts = [
 		className: "academy",
 		image: Academy,
 		discription:
-			"This where you come to learn about the fundamentals of the Web3.0 and get assigne d the quest to learn the skills hands-on. You also upgrade your champions here by casting spells",
+			"This where you come to learn about the fundamentals of the Web3.0 and get assigne d the quest to learn the skills hands-on.",
 	},
 	{
 		id: "1",
@@ -39,10 +39,10 @@ export const discricts = [
 	},
 	{
 		id: "4",
-		name: "Coming Soon 🚀",
-		className: "comingsoon",
+		name: "Manifestor's Circle 🧙",
+		className: "enchant",
 		image: ComingSoon,
 		discription:
-			"Many more hands on are coming soon like Minigames, Trading, and more. Stay tuned!",
+			"This is where upgrade your champions by casting spells on them.",
 	},
 ];

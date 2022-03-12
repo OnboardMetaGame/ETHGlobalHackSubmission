@@ -16,6 +16,7 @@ function App() {
 	const [soundIcon, setSoundIcon] = useState(SoundOn);
 	const [isQuestBook, setIsQuestBook] = useState(false);
 	const [isNewBadge, setIsNewBadge] = useState(false);
+	const [isOptionsOpen, setIsOptionsOpen] = useState(false);
 	const [view, setView] = useState("home");
 
 	const handleSoundChange = () => {
@@ -28,7 +29,14 @@ function App() {
 			<SoundContext.Provider
 				value={{ sound, setSound, soundIcon, setSoundIcon, handleSoundChange }}>
 				<ModalContext.Provider
-					value={{ isQuestBook, setIsQuestBook, isNewBadge, setIsNewBadge }}>
+					value={{
+						isQuestBook,
+						setIsQuestBook,
+						isNewBadge,
+						setIsNewBadge,
+						isOptionsOpen,
+						setIsOptionsOpen,
+					}}>
 					<Routes>
 						<Route index element={<OpeningWindow />} exact />
 						<Route path="/" element={<OpeningWindow />} />

@@ -31,21 +31,34 @@ const tempBadges = [
 
 const Questbook = () => {
 	const { setIsQuestBook } = useContext(ModalContext);
-	const [page, setPage] = useState(0);
+	const [page, setPage] = useState(1);
+	const [badges, setBadges] = useState(tempBadges);
+
+	const lastBagdeIndex = page * 4;
+	const firstBagdeIndex = lastBagdeIndex - 4;
+	const curentBadges = badges.slice(firstBagdeIndex, lastBagdeIndex);
+
 	return (
 		<div className="questbook-bg">
 			<div className="questbook">
-				{tempBadges.map(({ id, name, image, discription }) => {
-					return (
-						<div className="badge" key={id}>
-							<img src={image} alt={name} />
-							<div className="name">{name}</div>
-							<div className="discription">{discription}</div>
-						</div>
-					);
-				})}
-				<img onClick={() => setIsQuestBook(false)} src={ExitBtn} alt="close" />
-				<div className="btn">
+				<div className="badges">
+					{curentBadges.map(({ id, name, image, discription }) => {
+						return (
+							<div className="badge" key={id}>
+								<img src={image} alt={name} />
+								<div className="name">{name}</div>
+								<div className="discription">{discription}</div>
+							</div>
+						);
+					})}
+				</div>
+				<img
+					className={"exit"}
+					onClick={() => setIsQuestBook(false)}
+					src={ExitBtn}
+					alt="close"
+				/>
+				<div className="btns">
 					<img onClick={() => setPage(page)} src={BackBtn} alt="back" />
 					<img onClick={() => setPage(page + 1)} src={NextBtn} alt="next" />
 				</div>
