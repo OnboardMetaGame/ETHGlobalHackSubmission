@@ -10,6 +10,7 @@
 	height: 100%;
 	@include center;
 	.questbook {
+		position: relative;
 		z-index: 25;
 		padding: 2rem;
 		background-image: url("../assets/open-book.png");
@@ -17,15 +18,16 @@
 		width: 78ch;
 		height: 60ch;
 		.exit {
+			cursor: pointer;
 			position: absolute;
-			top: 3rem;
+			top: 6rem;
 			right: 3rem;
 			width: 3rem;
 		}
 		.badges {
-			width: 80%;
+			width: 95%;
+			margin-left: auto;
 			margin-top: 1rem;
-			margin-left: 2rem;
 			height: 80%;
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
@@ -34,7 +36,17 @@
 				flex-direction: column;
 				color: #1f1f1f;
 				img {
-					width: 3rem;
+					width: 5rem;
+				}
+				.name {
+					font-size: 1.5rem;
+					font-weight: bold;
+				}
+				.discription {
+					text-align: center;
+					width: 90%;
+					font-family: $ff-alt;
+					font-size: 1.5rem;
 				}
 			}
 		}

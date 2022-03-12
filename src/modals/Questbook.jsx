@@ -59,8 +59,23 @@ const Questbook = () => {
 					alt="close"
 				/>
 				<div className="btns">
-					<img onClick={() => setPage(page)} src={BackBtn} alt="back" />
-					<img onClick={() => setPage(page + 1)} src={NextBtn} alt="next" />
+					<img
+						onClick={() => setPage(page > 1 ? page - 1 : page)}
+						style={{ cursor: page > 1 ? "pointer" : "not-allowed" }}
+						src={BackBtn}
+						alt="back"
+					/>
+					<img
+						onClick={() =>
+							setPage(badges / 4 >= page && page !== 4 ? page + 1 : page)
+						}
+						style={{
+							cursor:
+								badges / 4 >= page && page !== 4 ? "pointer" : "not-allowed",
+						}}
+						src={NextBtn}
+						alt="next"
+					/>
 				</div>
 			</div>
 		</div>
