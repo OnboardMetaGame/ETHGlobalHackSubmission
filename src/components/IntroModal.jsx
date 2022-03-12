@@ -9,17 +9,12 @@ const IntroModal = ({ setIsModalOpen }) => {
 		typeof window?.ethereum !== "undefined",
 	);
 
-	const {
-		authenticate,
-		isAuthenticated,
-		isWeb3Enabled,
-		enableWeb3,
-		isWeb3EnableLoading,
-		user,
-	} = useMoralis();
+	const { isAuthenticated, isWeb3Enabled, enableWeb3, isWeb3EnableLoading } =
+		useMoralis();
 
 	useEffect(() => {
 		if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading) enableWeb3();
+		setIsBrowserWallet(typeof window?.ethereum !== "undefined");
 	}, [isAuthenticated, isWeb3Enabled]);
 
 	return (

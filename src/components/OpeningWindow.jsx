@@ -7,8 +7,12 @@ import Settings from "../assets/setting.png";
 import { Link } from "react-router-dom";
 
 import "../styles/opening.scss";
+import { useContext } from "react";
+import { SoundContext } from "../context/SoundContext";
 
-const OpeningWindow = ({ soundIcon, handleSoundChange }) => {
+const OpeningWindow = () => {
+	const { soundIcon, handleSoundChange } = useContext(SoundContext);
+
 	return (
 		<main className="view">
 			<div className="options">

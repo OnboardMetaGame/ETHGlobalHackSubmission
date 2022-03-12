@@ -2,7 +2,6 @@ import ConnectBtn from "../assets/connect-btn.png";
 import useLogin from "../hooks/useLogin";
 import NextBtn from "../assets/next.png";
 import BackBtn from "../assets/back.png";
-import BlankBtn from "../assets/blank-btn.png";
 import GetWalletBtn from "../assets/get-wallet.png";
 
 import { useState } from "react";
@@ -45,7 +44,6 @@ const NoWalletIntro = ({ setIsModalOpen }) => {
 						</div>
 					</>
 				);
-				break;
 			case 1:
 				return (
 					<>
@@ -94,7 +92,7 @@ const NoWalletIntro = ({ setIsModalOpen }) => {
 								src={BackBtn}
 								alt="back"
 							/>
-							<a href="https://metamask.io/" target="_blank">
+							<a href="https://metamask.io/" rel="noreferrer" target="_blank">
 								<img
 									className="action-btn"
 									src={GetWalletBtn}
