@@ -5,12 +5,31 @@ import BackBtn from "../assets/back.png";
 import GetWalletBtn from "../assets/get-wallet.png";
 
 import { useState } from "react";
+import { useWeb3ExecuteFunction, useMoralis } from "react-moralis";
+import { NftAbi, NftAddress } from "../contracts/Nfts";
 
 const NoWalletIntro = ({ setIsModalOpen }) => {
+	const { user } = useMoralis();
 	const [page, setPage] = useState(0);
+	const contractProcessor = useWeb3ExecuteFunction();
 
-	const handleConnect = () => {
+	const mintQuestbook = async () => {
+		const options = {
+			contractAddress: NftAddress,
+			functionName: "questbookMint",
+			abi: NftAbi,
+			params: {
+				account: user?.get("ethAddress"),
+				id: 1,
+				amount: 1,
+			},
+		};
+		await contractProcessor.fetch({ params: options });
+	};
+
+	const handleConnect = async () => {
 		login();
+		await mintQuestbook();
 		setIsModalOpen(false);
 	};
 
@@ -150,7 +169,7 @@ const NoWalletIntro = ({ setIsModalOpen }) => {
 						<div className="title">{"Welcome Onboard :) !!"}</div>
 						<div className="body">
 							<p>
-								Oh Snap! Looks like you don;t have a wallet. Don't worry we got
+								Oh Snap! Looks like you don't have a wallet. Don't worry we got
 								you. Follow these steps
 							</p>
 						</div>

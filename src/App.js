@@ -7,6 +7,7 @@ import Game from "./gameViews/Index";
 import { ModalContext } from "./context/ModalContext";
 import { SoundContext } from "./context/SoundContext";
 import { ViewContext } from "./context/ViewContext";
+import { CloudContext } from "./context/CloudContext";
 
 import SoundOn from "./assets/sound-on.png";
 import SoundOff from "./assets/sound-off.png";
@@ -30,9 +31,16 @@ function App() {
 	};
 
 	return (
+		// <CloudContext.Provider value={{ getAllUsers, allUsers }}>
 		<ViewContext.Provider value={{ view, setView }}>
 			<SoundContext.Provider
-				value={{ sound, setSound, soundIcon, setSoundIcon, handleSoundChange }}>
+				value={{
+					sound,
+					setSound,
+					soundIcon,
+					setSoundIcon,
+					handleSoundChange,
+				}}>
 				<ModalContext.Provider
 					value={{
 						isQuestBook,
@@ -54,6 +62,7 @@ function App() {
 				</ModalContext.Provider>
 			</SoundContext.Provider>
 		</ViewContext.Provider>
+		// </CloudContext.Provider>
 	);
 }
 

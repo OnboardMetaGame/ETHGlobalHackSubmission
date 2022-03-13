@@ -1,4 +1,4 @@
-import Badge from "../assets/badge_ph.png";
+import Badge from "../assets/firstBadge_ph.png";
 import ExitBtn from "../assets/exit.png";
 import AddToBookBtn from "../assets/add-to-book.png";
 import { ModalContext } from "../context/ModalContext";
@@ -7,10 +7,13 @@ import { useContext } from "react";
 
 import "../styles/new-badge.scss";
 
-const NewBadge = () => {
-	const { setIsNewBadge } = useContext(ModalContext);
+const NewBadge = ({ badge, title, description }) => {
+	const { setIsNewBadge, setIsQuestBook } = useContext(ModalContext);
 
-	const AddBadgeToBook = () => {};
+	const AddBadgeToBook = () => {
+		setIsNewBadge(false);
+		setIsQuestBook(true);
+	};
 
 	return (
 		<div className="new-badge-bg">
@@ -18,8 +21,10 @@ const NewBadge = () => {
 				<div className="message">🥳 Hurray!! 🥳</div>
 				<div className="badge">
 					<img src={Badge} alt="badge" />
-					<div className="name">First Time</div>
-					<div className="discription">You have completed the first quest</div>
+					<div className="name">Onboard</div>
+					<div className="discription">
+						You have completed the Blockchain Fundamentals
+					</div>
 				</div>
 				<img
 					className="exit"

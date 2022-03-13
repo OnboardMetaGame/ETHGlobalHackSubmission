@@ -28,7 +28,7 @@ const BlockchainFundamentals = [
 		answer: "Any computer in the network",
 	},
 	{
-		qustion: "Who is the founder of Bitcoin?",
+		question: "Who is the founder of Bitcoin?",
 		options: ["Satoshi Nakamoto", "Mark Zuckerberg", "Elon Musk"],
 		answer: "Satoshi Nakamoto",
 	},

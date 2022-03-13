@@ -1,14 +1,21 @@
+import { ViewContext } from "../context/ViewContext";
+import BackBtn from "../assets/back.png";
+import { useContext } from "react";
+
+import "../styles/bank.scss";
+
 const Bank = () => {
-	return <h1>Bank</h1>;
+	const { setView } = useContext(ViewContext);
+	return (
+		<div className="bank-tab">
+			<img
+				className="to-home"
+				onClick={() => setView("home")}
+				src={BackBtn}
+				alt="back"
+			/>
+		</div>
+	);
 };
 
 export default Bank;
-
-{
-	/* <img
-	className="to-home"
-	onClick={() => setView("home")}
-	src={BackBtn}
-	alt="back"
-/>; */
-}

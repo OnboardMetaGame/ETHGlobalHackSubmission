@@ -1,7 +1,7 @@
 import Academy from "../assets/academy.png";
 import Bank from "../assets/bank.png";
-import Dock from "../assets/fishpool.png";
-import ComingSoon from "../assets/comingsoon.png";
+import Dock from "../assets/docks.png";
+import Wiz from "../assets/comingsoon.png";
 import Farm from "../assets/farm.png";
 
 export const discricts = [
@@ -39,9 +39,9 @@ export const discricts = [
 	},
 	{
 		id: "4",
-		name: "Manifestor's Circle 🧙",
-		className: "enchant",
-		image: ComingSoon,
+		name: "Wizard's Circle 🧙",
+		className: "wizard",
+		image: Wiz,
 		discription:
 			"This is where upgrade your champions by casting spells on them.",
 	},

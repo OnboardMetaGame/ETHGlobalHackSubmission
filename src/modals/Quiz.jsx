@@ -1,6 +1,8 @@
 import { ModalContext } from "../context/ModalContext";
 
 import React, { useContext, useState } from "react";
+import { useWeb3ExecuteFunction, useMoralis } from "react-moralis";
+import { NftAbi, NftAddress } from "../contracts/Nfts";
 
 import ExitBtn from "../assets/exit.png";
 import "../styles/quiz.scss";
@@ -10,20 +12,56 @@ const Quiz = ({ quiz }) => {
 	const [page, setPage] = useState(0);
 	const [feedback, setFeedback] = useState("");
 	const [val, setVal] = useState("");
+	const { user } = useMoralis();
+
+	const contractProcessor = useWeb3ExecuteFunction();
 
 	function sleep(ms) {
 		return new Promise((resolve) => setTimeout(resolve, ms));
 	}
+
+	const mintBadge = async () => {
+		const options = {
+			contractAddress: NftAddress,
+			functionName: "badgeMint",
+			abi: NftAbi,
+			params: {
+				account: user?.get("ethAddress"),
+				id: 1,
+				amount: 1,
+			},
+		};
+		await contractProcessor.fetch({ params: options });
+	};
+
+	const mintChampion = async () => {
+		const options = {
+			contractAddress: NftAddress,
+			functionName: "championMint",
+			abi: NftAbi,
+			params: {
+				account: user?.get("ethAddress"),
+				id: 2,
+				amount: 1,
+			},
+		};
+		await contractProcessor.fetch({ params: options });
+	};
+
+	// console.log("mint", typeof mintChampion);
 
 	const handleCorrect = async () => {
 		setFeedback("Correct!");
 		await sleep(300);
 		if (page < quiz.length - 1) {
 			setFeedback("");
-			setVal("");
 			setPage(page + 1);
 		} else {
 			setIsQuizOpen(false);
+			console.log("MINTS");
+			await mintBadge();
+			await mintChampion();
+			console.log("MINTS");
 			setIsNewBadge(true);
 		}
 	};
@@ -34,9 +72,8 @@ const Quiz = ({ quiz }) => {
 				<div className="question">{quiz[page].question}</div>
 				<div className="options">
 					{quiz[page].options.map((option, index) => (
-						<div className="option">
+						<div className="option" key={index}>
 							<input
-								key={index}
 								type="radio"
 								name={`q${page}`}
 								className={`q${page}`}

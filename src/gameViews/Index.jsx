@@ -1,6 +1,6 @@
 import IntroModal from "../components/IntroModal";
 
-import { useMoralis } from "react-moralis";
+import { useMoralis, useMoralisQuery } from "react-moralis";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -15,6 +15,7 @@ import Academy from "./Academy";
 import Pool from "./Pool";
 import Bank from "./Bank";
 import Farm from "./Farm";
+import Wizard from "./Wizard";
 import Questbook from "../modals/Questbook";
 import Book from "../assets/questbook.png";
 import NewBadge from "../modals/NewBadge";
@@ -34,13 +35,24 @@ const Game = () => {
 	const navigate = useNavigate();
 	const { user, logout } = useMoralis();
 
-	const [isIntroModalOpen, setIsIntroModalOpen] = useState(user === null);
+	// const {
+	// 	fetch: getUsers,
+	// 	data: [UserFromDB],
+	// 	error: usersError,
+	// 	isLoading: usersLoading,
+	// } = useMoralisQuery(
+	// 	"User",
+	// 	(query) => query.equalTo("ethAddress", user.get("ethAddress")),
+	// 	[user],
+	// 	{
+	// 		autoFetch: false,
+	// 		live: false,
+	// 	},
+	// );
 
-	const handleLogout = () => {
-		logout();
-		navigate("/");
-		setView("home");
-	};
+	// console.log("user", UserFromDB);
+
+	const [isIntroModalOpen, setIsIntroModalOpen] = useState(user === null);
 
 	const addressHandler = (address) => {
 		return `${address.slice(0, 5)}...${address.slice(-5)}`;
@@ -79,6 +91,7 @@ const Game = () => {
 			{view === "bank" && <Bank />}
 			{view === "pool" && <Pool />}
 			{view === "academy" && <Academy />}
+			{view === "wizard" && <Wizard />}
 		</main>
 	);
 };
