@@ -1,10 +1,8 @@
 import { ModalContext } from "../context/ModalContext";
 
 import React, { useContext, useState } from "react";
-import { useMoralis } from "react-moralis";
+import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import { NftAbi, NftAddress } from "../contracts/Nfts";
-
-// import Web3 from "web3";
 
 import ExitBtn from "../assets/exit.png";
 import "../styles/quiz.scss";
@@ -16,58 +14,39 @@ const Quiz = ({ quiz }) => {
 	const [val, setVal] = useState("");
 	const { user } = useMoralis();
 
-	// const web3 = new Web3(window.ethereum);
-	// const contract = new web3.eth.Contract(NftAbi, NftAddress);
+	const {
+		error: badgeMintError,
+		fetch: mintBadge,
+		isFetching: mintingBadge,
+	} = useWeb3ExecuteFunction({
+		abi: NftAbi,
+		contractAddress: NftAddress,
+		functionName: "badgeMint",
+		params: {
+			account: user?.get("ethAddress"),
+			id: 1,
+			amount: 1,
+		},
+	});
 
-	// const mintBadge = await contract.methods.badgeMint().call({
-	// 	account: user.get("ethAddress"),
-	// 	id: 1,
-	// 	amount: 1,
-	// });
-
-	// const mintChampion = await contract.methods.championMint().call({
-	// 	account: user.get("ethAddress"),
-	// 	id: 2,
-	// 	amount: 1,
-	// });
-
-	// console.log("mintbadge", mintBadge);
-
-	// const contractProcessor = useWeb3ExecuteFunction();
+	const {
+		error: championMintError,
+		fetch: mintChampion,
+		isFetching: mintingChampion,
+	} = useWeb3ExecuteFunction({
+		abi: NftAbi,
+		contractAddress: NftAddress,
+		functionName: "championMint",
+		params: {
+			account: user?.get("ethAddress"),
+			id: 2,
+			amount: 1,
+		},
+	});
 
 	function sleep(ms) {
 		return new Promise((resolve) => setTimeout(resolve, ms));
 	}
-
-	// const mintBadge = async () => {
-	// 	const options = {
-	// 		contractAddress: NftAddress,
-	// 		functionName: "badgeMint",
-	// 		abi: NftAbi,
-	// 		params: {
-	// 			account: user?.get("ethAddress"),
-	// 			id: 1,
-	// 			amount: 1,
-	// 		},
-	// 	};
-	// 	await contractProcessor.fetch({ params: options });
-	// };
-
-	// const mintChampion = async () => {
-	// 	const options = {
-	// 		contractAddress: NftAddress,
-	// 		functionName: "championMint",
-	// 		abi: NftAbi,
-	// 		params: {
-	// 			account: user?.get("ethAddress"),
-	// 			id: 2,
-	// 			amount: 1,
-	// 		},
-	// 	};
-	// 	await contractProcessor.fetch({ params: options });
-	// };
-
-	// console.log("mint", typeof mintChampion);
 
 	const handleCorrect = async () => {
 		setFeedback("Correct!");
@@ -77,10 +56,8 @@ const Quiz = ({ quiz }) => {
 			setPage(page + 1);
 		} else {
 			setIsQuizOpen(false);
-			console.log("MINTS");
-			// await mintBadge();
-			// await mintChampion();
-			console.log("MINTS");
+			await mintBadge();
+			await mintChampion();
 			setIsNewBadge(true);
 		}
 	};

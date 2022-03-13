@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import OpeningWindow from "./components/OpeningWindow";
 import Game from "./gameViews/Index";
@@ -7,7 +7,8 @@ import Game from "./gameViews/Index";
 import { ModalContext } from "./context/ModalContext";
 import { SoundContext } from "./context/SoundContext";
 import { ViewContext } from "./context/ViewContext";
-import { CloudContext } from "./context/CloudContext";
+
+import { useMoralis } from "react-moralis";
 
 import SoundOn from "./assets/sound-on.png";
 import SoundOff from "./assets/sound-off.png";
@@ -15,6 +16,9 @@ import SoundOff from "./assets/sound-off.png";
 function App() {
 	const [sound, setSound] = useState(true);
 	const [soundIcon, setSoundIcon] = useState(SoundOn);
+
+	const { isAuthenticated, isWeb3Enabled, enableWeb3, isWeb3EnableLoading } =
+		useMoralis();
 
 	// modals
 	const [isQuestBook, setIsQuestBook] = useState(false);
@@ -29,6 +33,10 @@ function App() {
 		sound ? setSoundIcon(SoundOff) : setSoundIcon(SoundOn);
 		setSound(!sound);
 	};
+
+	useEffect(() => {
+		if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading) enableWeb3();
+	}, [isAuthenticated, isWeb3Enabled]);
 
 	return (
 		// <CloudContext.Provider value={{ getAllUsers, allUsers }}>

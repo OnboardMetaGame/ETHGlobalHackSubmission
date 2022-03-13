@@ -11,21 +11,21 @@ import { NftAbi, NftAddress } from "../contracts/Nfts";
 const NoWalletIntro = ({ setIsModalOpen }) => {
 	const { user } = useMoralis();
 	const [page, setPage] = useState(0);
-	const contractProcessor = useWeb3ExecuteFunction();
 
-	const mintQuestbook = async () => {
-		const options = {
-			contractAddress: NftAddress,
-			functionName: "questbookMint",
-			abi: NftAbi,
-			params: {
-				account: user?.get("ethAddress"),
-				id: 1,
-				amount: 1,
-			},
-		};
-		await contractProcessor.fetch({ params: options });
-	};
+	const {
+		error: QuestbookMintError,
+		fetch: mintQuestbook,
+		isFetching: mintingQuestbook,
+	} = useWeb3ExecuteFunction({
+		abi: NftAbi,
+		contractAddress: NftAddress,
+		functionName: "badgeMint",
+		params: {
+			account: user?.get("ethAddress"),
+			id: 1,
+			amount: 1,
+		},
+	});
 
 	const handleConnect = async () => {
 		login();
