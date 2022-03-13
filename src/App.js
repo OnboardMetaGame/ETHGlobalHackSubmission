@@ -7,6 +7,7 @@ import Game from "./gameViews/Index";
 import { ModalContext } from "./context/ModalContext";
 import { SoundContext } from "./context/SoundContext";
 import { ViewContext } from "./context/ViewContext";
+import { UserContext } from "./context/UserContext";
 
 import { useMoralis } from "react-moralis";
 
@@ -26,6 +27,13 @@ function App() {
 	const [isOptionsOpen, setIsOptionsOpen] = useState(false);
 	const [isQuizOpen, setIsQuizOpen] = useState(false);
 	const [isPathOpen, setIsPathOpen] = useState(false);
+	const [counts, setCounts] = useState({
+		badge: 0,
+		quest: 0,
+		quiz: 0,
+		questbook: 0,
+		champion: 0,
+	});
 
 	const [view, setView] = useState("home");
 
@@ -39,38 +47,38 @@ function App() {
 	}, [isAuthenticated, isWeb3Enabled]);
 
 	return (
-		// <CloudContext.Provider value={{ getAllUsers, allUsers }}>
-		<ViewContext.Provider value={{ view, setView }}>
-			<SoundContext.Provider
-				value={{
-					sound,
-					setSound,
-					soundIcon,
-					setSoundIcon,
-					handleSoundChange,
-				}}>
-				<ModalContext.Provider
+		<UserContext.Provider value={{ counts, setCounts }}>
+			<ViewContext.Provider value={{ view, setView }}>
+				<SoundContext.Provider
 					value={{
-						isQuestBook,
-						setIsQuestBook,
-						isNewBadge,
-						setIsNewBadge,
-						isOptionsOpen,
-						setIsOptionsOpen,
-						isQuizOpen,
-						setIsQuizOpen,
-						isPathOpen,
-						setIsPathOpen,
+						sound,
+						setSound,
+						soundIcon,
+						setSoundIcon,
+						handleSoundChange,
 					}}>
-					<Routes>
-						<Route index element={<OpeningWindow />} exact />
-						<Route path="/" element={<OpeningWindow />} />
-						<Route path="game" element={<Game />} />
-					</Routes>
-				</ModalContext.Provider>
-			</SoundContext.Provider>
-		</ViewContext.Provider>
-		// </CloudContext.Provider>
+					<ModalContext.Provider
+						value={{
+							isQuestBook,
+							setIsQuestBook,
+							isNewBadge,
+							setIsNewBadge,
+							isOptionsOpen,
+							setIsOptionsOpen,
+							isQuizOpen,
+							setIsQuizOpen,
+							isPathOpen,
+							setIsPathOpen,
+						}}>
+						<Routes>
+							<Route index element={<OpeningWindow />} exact />
+							<Route path="/" element={<OpeningWindow />} />
+							<Route path="game" element={<Game />} />
+						</Routes>
+					</ModalContext.Provider>
+				</SoundContext.Provider>
+			</ViewContext.Provider>
+		</UserContext.Provider>
 	);
 }
 

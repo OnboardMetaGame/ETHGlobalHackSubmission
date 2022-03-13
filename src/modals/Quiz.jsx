@@ -1,4 +1,5 @@
 import { ModalContext } from "../context/ModalContext";
+import { UserContext } from "../context/UserContext";
 
 import React, { useContext, useState } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
@@ -9,6 +10,8 @@ import "../styles/quiz.scss";
 
 const Quiz = ({ quiz }) => {
 	const { setIsQuizOpen, setIsNewBadge } = useContext(ModalContext);
+	const { counts, setCounts } = useContext(UserContext);
+	const { badge, quiz: quizCount } = counts;
 	const [page, setPage] = useState(0);
 	const [feedback, setFeedback] = useState("");
 	const [val, setVal] = useState("");
@@ -58,6 +61,7 @@ const Quiz = ({ quiz }) => {
 			setIsQuizOpen(false);
 			await mintBadge();
 			await mintChampion();
+			setCounts({ ...counts, badge: badge + 1, quiz: quizCount + 1 });
 			setIsNewBadge(true);
 		}
 	};
