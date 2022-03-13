@@ -9,7 +9,7 @@ import { NftAbi, NftAddress } from "../contracts/Nfts";
 import ExitBtn from "../assets/exit.png";
 import "../styles/quiz.scss";
 
-const Quiz = async ({ quiz }) => {
+const Quiz = ({ quiz }) => {
 	const { setIsQuizOpen, setIsNewBadge } = useContext(ModalContext);
 	const [page, setPage] = useState(0);
 	const [feedback, setFeedback] = useState("");

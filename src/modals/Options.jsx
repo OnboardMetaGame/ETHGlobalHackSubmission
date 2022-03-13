@@ -1,4 +1,4 @@
-import Champion from "../assets/champ.png";
+import Champion from "../assets/champion.png";
 import Questbook from "../assets/open-questbook.png";
 import Exit from "../assets/exit.png";
 import Logout from "../assets/logout.png";
