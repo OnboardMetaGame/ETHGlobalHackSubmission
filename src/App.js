@@ -24,6 +24,7 @@ function App() {
 	// modals
 	const [isQuestBook, setIsQuestBook] = useState(false);
 	const [isNewBadge, setIsNewBadge] = useState(false);
+	const [isNewQuestbook, setIsNewQuestbook] = useState(false);
 	const [isOptionsOpen, setIsOptionsOpen] = useState(false);
 	const [isQuizOpen, setIsQuizOpen] = useState(false);
 	const [isPathOpen, setIsPathOpen] = useState(false);
@@ -69,6 +70,8 @@ function App() {
 							setIsQuizOpen,
 							isPathOpen,
 							setIsPathOpen,
+							isNewQuestbook,
+							setIsNewQuestbook,
 						}}>
 						<Routes>
 							<Route index element={<OpeningWindow />} exact />

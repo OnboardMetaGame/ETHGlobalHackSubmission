@@ -4,13 +4,15 @@ import NextBtn from "../assets/next.png";
 import BackBtn from "../assets/back.png";
 import GetWalletBtn from "../assets/get-wallet.png";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useWeb3ExecuteFunction, useMoralis } from "react-moralis";
 import { NftAbi, NftAddress } from "../contracts/Nfts";
+import { ModalContext } from "../context/ModalContext";
 
 const NoWalletIntro = ({ setIsModalOpen }) => {
 	const { user } = useMoralis();
 	const [page, setPage] = useState(0);
+	const { setIsNewQuestbook } = useContext(ModalContext);
 
 	const {
 		error: QuestbookMintError,
@@ -30,6 +32,7 @@ const NoWalletIntro = ({ setIsModalOpen }) => {
 	const handleConnect = async () => {
 		login();
 		await mintQuestbook();
+		setIsNewQuestbook(true);
 		setIsModalOpen(false);
 	};
 

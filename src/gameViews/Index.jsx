@@ -19,6 +19,7 @@ import Wizard from "./Wizard";
 import Questbook from "../modals/Questbook";
 import Book from "../assets/questbook.png";
 import NewBadge from "../modals/NewBadge";
+import NewQuestbook from "../modals/NewQuestbook";
 import Options from "../modals/Options";
 
 const Game = () => {
@@ -27,6 +28,7 @@ const Game = () => {
 		isQuestBook,
 		setIsQuestBook,
 		setIsNewBadge,
+		isNewQuestbook,
 		isNewBadge,
 		isOptionsOpen,
 		setIsOptionsOpen,
@@ -85,6 +87,7 @@ const Game = () => {
 			{isQuestBook && <Questbook />}
 			{isNewBadge && <NewBadge />}
 			{isOptionsOpen && <Options />}
+			{isNewQuestbook && <NewQuestbook />}
 
 			{view === "home" && <Home />}
 			{view === "farm" && <Farm />}
