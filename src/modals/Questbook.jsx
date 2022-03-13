@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 
-import Badge from "../assets/badge_ph.png";
+import Badge from "../assets/firstBadge_ph.png";
 import NextBtn from "../assets/next.png";
 import BackBtn from "../assets/back.png";
 import ExitBtn from "../assets/exit.png";
@@ -11,21 +11,9 @@ import "../styles/questbook.scss";
 const tempBadges = [
 	{
 		id: 0,
-		name: "First Time",
+		name: "Onboard",
 		image: Badge,
-		discription: "You have completed the first quest",
-	},
-	{
-		id: 1,
-		name: "Second Time",
-		image: Badge,
-		discription: "You have completed the second quest",
-	},
-	{
-		id: 2,
-		name: "Third Time",
-		image: Badge,
-		discription: "You have completed the third quest",
+		discription: "You have completed the Blockchain Fundamentals quiz",
 	},
 ];
 
