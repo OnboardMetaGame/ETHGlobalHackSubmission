@@ -25,6 +25,7 @@ const Options = () => {
 		navigate("/");
 		setView("home");
 	};
+
 	return (
 		<div className="options-bg">
 			<div className="options">
