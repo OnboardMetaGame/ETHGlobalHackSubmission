@@ -1,4 +1,4 @@
-![banner](/public/banner.png)
+![banner](client/public/banner.png)
 
 ### Onboard is a MetaFi game.
 
