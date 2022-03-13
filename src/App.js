@@ -14,9 +14,14 @@ import SoundOff from "./assets/sound-off.png";
 function App() {
 	const [sound, setSound] = useState(true);
 	const [soundIcon, setSoundIcon] = useState(SoundOn);
+
+	// modals
 	const [isQuestBook, setIsQuestBook] = useState(false);
 	const [isNewBadge, setIsNewBadge] = useState(false);
 	const [isOptionsOpen, setIsOptionsOpen] = useState(false);
+	const [isQuizOpen, setIsQuizOpen] = useState(false);
+	const [isPathOpen, setIsPathOpen] = useState(false);
+
 	const [view, setView] = useState("home");
 
 	const handleSoundChange = () => {
@@ -36,6 +41,10 @@ function App() {
 						setIsNewBadge,
 						isOptionsOpen,
 						setIsOptionsOpen,
+						isQuizOpen,
+						setIsQuizOpen,
+						isPathOpen,
+						setIsPathOpen,
 					}}>
 					<Routes>
 						<Route index element={<OpeningWindow />} exact />

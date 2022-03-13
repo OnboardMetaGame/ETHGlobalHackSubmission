@@ -1,0 +1,50 @@
+@import "var";
+
+.academy-tab {
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../assets/lib-bg.jpeg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	padding: 2rem;
+	.to-home {
+		position: absolute;
+		width: 7.5ch;
+		top: 1rem;
+		left: 1rem;
+		cursor: pointer;
+	}
+	.title {
+		margin: 3rem auto;
+		font-size: 5rem;
+		text-align: center;
+	}
+	.paths {
+		@include center;
+		flex-wrap: wrap;
+		.path {
+			cursor: pointer;
+			background-color: rgb(255, 166, 0);
+			border: 4px ridge rgb(116, 56, 0);
+			border-radius: 1rem;
+			background-position: center;
+			padding: 1rem 1.5rem;
+			max-width: 12rem;
+			.path-name {
+				font-size: 1.5rem;
+				font-weight: bold;
+				color: rgb(255, 255, 255);
+				text-transform: uppercase;
+				text-align: center;
+			}
+			.path-description {
+				font-size: 1.5rem;
+				font-family: $ff-alt;
+				color: rgb(255, 255, 255);
+				text-align: center;
+			}
+		}
+	}
+}

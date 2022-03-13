@@ -3,3 +3,12 @@ const Farm = () => {
 };
 
 export default Farm;
+
+{
+	/* <img
+	className="to-home"
+	onClick={() => setView("home")}
+	src={BackBtn}
+	alt="back"
+/>; */
+}

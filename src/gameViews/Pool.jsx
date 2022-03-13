@@ -5,3 +5,12 @@ const Pool = () => {
 };
 
 export default Pool;
+
+{
+	/* <img
+	className="to-home"
+	onClick={() => setView("home")}
+	src={BackBtn}
+	alt="back"
+/>; */
+}

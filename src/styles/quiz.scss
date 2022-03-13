@@ -1,0 +1,75 @@
+@import "var";
+
+.quiz-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 30;
+	background-color: rgba($color: #000000, $alpha: 0.5);
+	width: 100%;
+	height: 100%;
+	@include center;
+	z-index: 20;
+
+	.quiz-content {
+		position: relative;
+		z-index: 25;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-direction: column;
+		width: 80ch;
+		background-color: #000000;
+		padding: 2rem;
+		border-radius: 1rem;
+		.exit {
+			cursor: pointer;
+			position: absolute;
+			top: 3rem;
+			right: 3rem;
+			width: 3rem;
+		}
+		.question {
+			margin: 0 auto;
+			width: 80%;
+			font-size: 3rem;
+			color: rgb(255, 255, 255);
+			text-align: center;
+		}
+		.options {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-around;
+			margin: 2rem 0;
+			.option {
+				font-family: $ff-alt;
+				font-size: 2rem;
+				margin: 0.5rem 0;
+			}
+		}
+		.feedback {
+			margin: 0 auto;
+			width: 80%;
+			font-size: 2rem;
+			color: rgb(255, 255, 255);
+			text-align: center;
+		}
+		.success {
+			color: rgb(121, 202, 0);
+		}
+		.danger {
+			color: rgb(255, 56, 56);
+		}
+		.btns {
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			img {
+				height: 4rem;
+			}
+			margin: 2rem 0;
+		}
+	}
+}
