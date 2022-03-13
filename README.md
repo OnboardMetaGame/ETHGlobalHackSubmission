@@ -1,5 +1,13 @@
 ![banner](client/public/banner.png)
 
+# Tech Used
+
+**Polygon** - Our entire application runs on Polygon, currently on Polygon Mumbain testnet but soon to be on the Polygon Mainnet. The Smart contracts are deployed to the polygon mainnet.
+
+**IPFS** - The NFTs and their metadeta are stored on IPFS where we use it to show our NFTs to secondary markets, currently Openseas Testnet
+
+**Moralis** - Moralis is the backbone of our project from managing the data base, to authenticating users and storing user data, how many NFTs they posses. Moralis SDK enabled us to talk the the smart contracts from the frontend and finally it also helped in running cloud scripts.
+
 ### Onboard is a MetaFi game.
 
 🧠 In itself, it is a DAO of DAOs. Its aim is to ensure functioning open
