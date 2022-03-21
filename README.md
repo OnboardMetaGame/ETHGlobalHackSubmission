@@ -17,8 +17,8 @@ develop the means to solve them through a satelite of DAOs. (LEARN/CONTRIBUTE)
 
 💰 It’s a token of tokens. It leverages DeFi capabilities by creating a BOARD
 token that will be backed by the tokens of different DAO partners that are
-integrated into our platform. This allows our community to act as a protocol
-politician for important decisions that affect our DAO partners. (EARN/GOVERN)
+integrated into our platform. This allows our community to engage as a meta-governance 
+and act as a protocol politician for important decisions that affect our DAO partners. (EARN/GOVERN)
 
 🎮 It’s a Metaverse of Metaverses. Onboard will use a simple but fun and
 engaging metaverse to create an interoperable NFT game that allows users to
