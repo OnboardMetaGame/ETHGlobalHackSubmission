@@ -15,8 +15,9 @@ metaverse by onboard a community of gamers, learners, contributors and DAO
 partners that understand the wide range of blockchain and societal issues and
 develop the means to solve them through a satelite of DAOs. (LEARN/CONTRIBUTE)
 
-💰 It’s a token of tokens. It leverages DeFi capabilities by creating a BOARD
-token that will be backed by the tokens of different DAO partners that are
+💰 It’s a token of tokens. The protocol leverages DeFi capabilities by creating a DEX with BOARD
+token we can leverae reputation based pools, that provide community members involved with governance, higher APR rates. 
+The treasury will be backed by the tokens of different DAO partners that are
 integrated into our platform. This allows our community to engage as a meta-governanor 
 and act as a protocol politician for important decisions that affect our DAO partners. (EARN/GOVERN)
 
