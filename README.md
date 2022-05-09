@@ -10,8 +10,8 @@
 
 ### Onboard is a MetaFi game.
 
-🧠 In itself, it is a DAO of DAOs. Its aim is to ensure functioning open
-metaverse by onboard a community of gamers, learners, contributors and DAO
+🧠 In itself, it is a DAO of DAOs. Its aim is to ensure a functioning open
+metaverse by onboarding a community of gamers, learners, contributors and DAO
 partners that understand the wide range of blockchain and societal issues and
 develop the means to solve them through a satelite of DAOs. (LEARN/CONTRIBUTE)
 
